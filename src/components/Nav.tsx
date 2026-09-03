@@ -9,7 +9,6 @@ interface NavProps {
 const NAV_LINKS = [
   { id: 'hero', label: 'Home' },
   { id: 'about', label: 'About' },
-  { id: 'focus', label: 'Capabilities' },
   { id: 'experience', label: 'Experience' },
   { id: 'projects', label: 'Projects' },
   { id: 'skills', label: 'System Map' },
@@ -36,7 +35,7 @@ export const Nav = ({ onToggleAutoTour, tourState = 'OFF' }: NavProps) => {
         <div className="h-3.5 w-[1px] bg-white/10 hidden md:block" />
 
         {/* Links */}
-        <div className="hidden lg:flex items-center gap-4 text-[13px] font-body font-semibold text-text">
+        <div className="hidden lg:flex items-center gap-4.5 xl:gap-5 text-[13px] font-body font-semibold text-text">
           {NAV_LINKS.map(link => (
             <a 
               key={link.id} 

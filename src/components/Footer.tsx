@@ -21,7 +21,6 @@ export const Footer = () => {
             <span className="font-mono text-[11px] text-text uppercase tracking-wider font-semibold mb-1">Navigation</span>
             <a href="#hero" className="hover:text-text transition-colors">Home</a>
             <a href="#about" className="hover:text-text transition-colors">About</a>
-            <a href="#capabilities" className="hover:text-text transition-colors">Capabilities</a>
             <a href="#skills" className="hover:text-text transition-colors">Skills</a>
             <a href="#experience" className="hover:text-text transition-colors">Experience</a>
             <a href="#projects" className="hover:text-text transition-colors">Projects</a>
