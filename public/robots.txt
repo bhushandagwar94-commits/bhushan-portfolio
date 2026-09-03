@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bhushan-portfolio-weld.vercel.app/sitemap.xml
+Sitemap: https://bhushan-dagwar-portfolio.vercel.app/sitemap.xml
