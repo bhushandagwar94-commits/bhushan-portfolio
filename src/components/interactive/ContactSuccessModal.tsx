@@ -20,10 +20,10 @@ export const ContactSuccessModal = ({ isOpen, onClose }: ContactSuccessModalProp
           <CheckCircle2 className="w-8 h-8" />
         </div>
 
-        <h3 className="font-display font-bold text-2xl text-text">MESSAGE READY</h3>
+        <h3 className="font-display font-bold text-2xl text-text">MESSAGE SENT</h3>
 
         <p className="text-sm text-muted leading-relaxed">
-          Thank you for reaching out. Bhushan will review your inquiry and respond directly via email or LinkedIn shortly.
+          Message sent successfully. Thank you for reaching out!
         </p>
 
         <button
