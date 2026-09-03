@@ -476,7 +476,11 @@ export const Hero = ({ onOpenResume }: HeroProps) => {
                 >
                   <img 
                     src="/1776781772145.png" 
-                    alt="Bhushan Rajendra Dagwar"
+                    alt="Bhushan Rajendra Dagwar — AI Engineer"
+                    loading="eager"
+                    fetchPriority="high"
+                    width="400"
+                    height="500"
                     className="w-full h-full object-cover object-[center_20%] transition-transform duration-700 ease-out group-hover:scale-105"
                     onError={(e) => { e.currentTarget.src = '/1776781772145.jpg'; }}
                   />

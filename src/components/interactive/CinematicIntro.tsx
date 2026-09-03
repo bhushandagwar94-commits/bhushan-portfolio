@@ -128,9 +128,9 @@ export const CinematicIntro = () => {
       >
         {phase === 'LANG' ? (
           <div key={stepIndex} className="welcome-step-animate flex flex-col items-center justify-center">
-            <h1 className={`text-[clamp(2.2rem,6.5vw,5.5rem)] leading-none ${currentStep.isHighlighted ? '' : 'text-text drop-shadow-[0_0_30px_rgba(255,255,255,0.18)]'} ${currentStep.fontClass}`}>
+            <div role="heading" aria-level={2} className={`text-[clamp(2.2rem,6.5vw,5.5rem)] leading-none ${currentStep.isHighlighted ? '' : 'text-text drop-shadow-[0_0_30px_rgba(255,255,255,0.18)]'} ${currentStep.fontClass}`}>
               {currentStep.word}
-            </h1>
+            </div>
             <span className="mt-4 font-mono text-[10px] sm:text-xs text-luxury font-semibold tracking-[0.25em] uppercase opacity-90 flex items-center gap-2">
               <span className="w-1 h-1 rounded-full bg-luxury" />
               <span>{currentStep.lang}</span>
@@ -142,9 +142,9 @@ export const CinematicIntro = () => {
             <span className="font-mono text-[10px] sm:text-xs tracking-[0.3em] text-luxury uppercase font-bold mb-2">
               BHUSHAN RAJENDRA DAGWAR
             </span>
-            <h1 className="text-[clamp(2.4rem,7vw,5.8rem)] font-display font-black text-text leading-tight tracking-[0.04em] drop-shadow-[0_0_35px_rgba(201,178,124,0.3)]">
+            <div role="heading" aria-level={2} className="text-[clamp(2.4rem,7vw,5.8rem)] font-display font-black text-text leading-tight tracking-[0.04em] drop-shadow-[0_0_35px_rgba(201,178,124,0.3)]">
               AI ENGINEER
-            </h1>
+            </div>
             <span className="mt-3 font-mono text-[10px] sm:text-xs text-accent font-semibold tracking-[0.2em] uppercase">
               APPLIED LLM & RAG ARCHITECTURES
             </span>
