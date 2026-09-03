@@ -1,0 +1,41 @@
+.glare-hover {
+  position: relative;
+  overflow: hidden;
+  border-style: solid;
+  border-width: 1px;
+  isolation: isolate;
+}
+
+.glare-hover__glare {
+  position: absolute;
+  inset: -100%;
+  pointer-events: none;
+  background: linear-gradient(
+    var(--glare-angle, -30deg),
+    transparent 0%,
+    transparent 42%,
+    var(--glare-color, #ffffff) 50%,
+    transparent 58%,
+    transparent 100%
+  );
+  opacity: 0;
+  transform: translate3d(-100%, -100%, 0);
+  transition: transform var(--glare-transition, 700ms) cubic-bezier(0.16, 1, 0.3, 1),
+              opacity var(--glare-transition, 700ms) cubic-bezier(0.16, 1, 0.3, 1);
+  mix-blend-mode: overlay;
+  z-index: 2;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .glare-hover:hover .glare-hover__glare {
+    opacity: var(--glare-opacity, 0.12);
+    transform: translate3d(100%, 100%, 0);
+  }
+}
+
+.glare-hover__content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,25 @@
+:root {
+  --bg: #050505;
+  --surface: #0A0A0C;
+  --surface-2: #111114;
+  --line: #1C1C1F;
+  --line-light: rgba(255, 255, 255, 0.08);
+  --line-luxury: rgba(201, 178, 124, 0.25);
+  --text: #F8FAFC;
+  --muted: #CBD5E1;
+  --muted-dark: #94A3B8;
+  --luxury: #C9B27C;
+  --accent: #5AC8FA;
+  --violet: #7C7CFF;
+
+  /* Z-Index Scale */
+  --z-bg:      0;
+  --z-content: 10;
+  --z-float:   20;
+  --z-panel:   30;
+  --z-nav:     50;
+  --z-modal:   100;
+  --z-cursor:  9999;
+}
+
+

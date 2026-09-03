@@ -1,0 +1,175 @@
+@import "tailwindcss";
+@import "./styles/tokens.css";
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=JetBrains+Mono:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Sora:wght@400;500;600;700;800&display=swap");
+
+@theme {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-line-light: var(--line-light);
+  --color-line-luxury: var(--line-luxury);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-muted-dark: var(--muted-dark);
+  --color-luxury: var(--luxury);
+  --color-accent: var(--accent);
+  --color-violet: var(--violet);
+
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-display: "Sora", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: "Sora", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: "Manrope", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+@layer base {
+  html, body, #root {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  html {
+    background-color: var(--bg);
+    color: var(--text);
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply font-body antialiased overflow-x-hidden;
+    font-size: 1rem;
+    line-height: 1.65;
+    background-color: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  *, ::before, ::after {
+    box-sizing: border-box;
+  }
+
+  p, span, h1, h2, h3, h4, h5, h6, a, div {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  html.lenis, html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  .lenis.lenis-scrolling iframe {
+    pointer-events: none;
+  }
+
+  section {
+    scroll-margin-top: 80px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--bg);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #202024;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #35353d;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight normal-case;
+  }
+  
+  a, button {
+    @apply cursor-pointer;
+  }
+  
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .font-editorial {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  .font-marathi {
+    font-family: 'Tiro Devanagari Marathi', 'Noto Sans Devanagari', 'Mangal', 'Kokila', sans-serif;
+  }
+
+  .font-gujarati {
+    font-family: 'Noto Sans Gujarati', 'Shruti', 'Gujarati Sangam MN', sans-serif;
+  }
+  
+  .glass-pill {
+    background: rgba(12, 12, 18, 0.55);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+  
+  .glass-card {
+    background: rgba(12, 12, 18, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+  
+  .glass-card-hover {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+  }
+
+  .glass-card-hover:hover {
+    background: rgba(18, 18, 26, 0.82);
+    border-color: rgba(201, 178, 124, 0.4);
+    box-shadow: 0 10px 30px rgba(0, 240, 255, 0.08);
+  }
+  
+  .z-modal {
+    z-index: 9999 !important;
+  }
+
+  .glass-card-hover:hover {
+    border-color: rgba(90, 200, 250, 0.3);
+    box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.6), 0 0 30px -5px rgba(90, 200, 250, 0.07);
+  }
+}

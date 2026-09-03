@@ -1,0 +1,116 @@
+/* interactive-background.css */
+
+.interactive-aurora-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  pointer-events: none;
+  overflow: hidden;
+  background-color: #050505;
+}
+
+/* Global GhostFibers Background Positioning */
+.global-ghost-background {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background-color: #050508;
+}
+
+.global-ghost-background .ghost-fibers-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+}
+
+.global-background-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: rgba(5, 5, 12, 0.18);
+}
+
+.portfolio-content {
+  position: relative;
+  z-index: 1;
+}
+
+.aurora-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Subtle Film Grain Noise */
+.aurora-noise {
+  position: absolute;
+  inset: 0;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMiIgaGVpZ2h0PSIyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNmZmYiIG9wYWNpdHk9IjAuMDIiLz48L3N2Zz4=');
+  opacity: 0.28;
+  pointer-events: none;
+}
+
+/* Lightweight CSS-Only Welcome Screen Overlay */
+.welcome-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background-color: #050508;
+  color: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.75rem;
+  user-select: none;
+  overflow: hidden;
+  animation: welcomeOverlayFadeOut 0.35s 2.5s ease-in-out forwards;
+}
+
+@media (min-width: 640px) {
+  .welcome-overlay {
+    padding: 2.5rem;
+  }
+}
+
+@keyframes welcomeOverlayFadeOut {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes stepFadeInBlur {
+  0% {
+    opacity: 0;
+    filter: blur(6px);
+    transform: scale(0.97) translateY(3px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0px);
+    transform: scale(1) translateY(0);
+  }
+}
+
+.welcome-step-animate {
+  animation: stepFadeInBlur 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.welcome-name-animate {
+  animation: stepFadeInBlur 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
