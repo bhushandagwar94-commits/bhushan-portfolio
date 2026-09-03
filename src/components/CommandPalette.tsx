@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Search, User, Cpu, Code2, Briefcase, FolderGit2, BookOpen, GraduationCap, Mail, FileDown, ExternalLink, Terminal, Eye, X, GitFork } from 'lucide-react';
 import { profile } from '../data/profile';
 import { GITHUB_PROFILE } from '../utils/github';
+import { handleEmailClick } from '../utils/email';
 
 interface CommandPaletteProps {
   isOpen: boolean;
@@ -59,7 +60,7 @@ export const CommandPalette = ({
     { id: 'anything-llm', title: 'Inspect anything-llm (FORK)', category: 'GitHub Repo', icon: GitFork, action: () => { window.open(`${GITHUB_PROFILE.url}/anything-llm`, '_blank'); onClose(); } },
     { id: 'search-box', title: 'Inspect Search-Box (ORIGINAL)', category: 'GitHub Repo', icon: Code2, action: () => { window.open(`${GITHUB_PROFILE.url}/Search-Box`, '_blank'); onClose(); } },
     { id: 'resume', title: 'Download Resume (PDF)', category: 'Action', icon: FileDown, action: () => { window.open(profile.resume, '_blank'); onClose(); } },
-    { id: 'email', title: 'Send Email to Bhushan', category: 'Action', icon: Mail, action: () => { window.location.href = `mailto:${profile.email}`; onClose(); } },
+    { id: 'email', title: 'Send Email to Bhushan', category: 'Action', icon: Mail, action: () => { handleEmailClick(undefined, profile.email); onClose(); } },
     { id: 'linkedin', title: 'Open LinkedIn Profile', category: 'Action', icon: ExternalLink, action: () => { window.open(profile.linkedin, '_blank'); onClose(); } },
     { id: 'recruiter', title: recruiterMode ? 'Deactivate Recruiter Mode' : 'Activate Recruiter Mode', category: 'Preference', icon: Eye, action: () => { onToggleRecruiterMode(); onClose(); } },
   ];

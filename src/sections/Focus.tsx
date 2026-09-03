@@ -36,7 +36,8 @@ const CAPABILITIES = [
 
 export const Focus = () => {
   return (
-    <section id="capabilities" className="py-4 sm:py-6 relative">
+    <section id="focus" className="py-4 sm:py-6 relative">
+      <div id="capabilities" className="scroll-mt-24" />
       <div className="max-w-[1220px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
         
         {/* Header */}

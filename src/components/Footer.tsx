@@ -1,5 +1,6 @@
 import { profile } from '../data/profile';
 import { GITHUB_PROFILE } from '../utils/github';
+import { handleEmailClick } from '../utils/email';
 
 export const Footer = () => {
   return (
@@ -20,7 +21,7 @@ export const Footer = () => {
             <span className="font-mono text-[11px] text-text uppercase tracking-wider font-semibold mb-1">Navigation</span>
             <a href="#hero" className="hover:text-text transition-colors">Home</a>
             <a href="#about" className="hover:text-text transition-colors">About</a>
-            <a href="#focus" className="hover:text-text transition-colors">Focus Areas</a>
+            <a href="#capabilities" className="hover:text-text transition-colors">Capabilities</a>
             <a href="#skills" className="hover:text-text transition-colors">Skills</a>
             <a href="#experience" className="hover:text-text transition-colors">Experience</a>
             <a href="#projects" className="hover:text-text transition-colors">Projects</a>
@@ -30,7 +31,13 @@ export const Footer = () => {
 
           <div className="md:col-span-3 flex flex-col gap-2.5 text-xs font-body">
             <span className="font-mono text-[11px] text-text uppercase tracking-wider font-semibold mb-1">Connect</span>
-            <a href={`mailto:${profile.email}`} className="hover:text-luxury transition-colors">Email</a>
+            <a 
+              href={`mailto:${profile.email}`} 
+              onClick={(e) => handleEmailClick(e, profile.email)}
+              className="hover:text-luxury transition-colors"
+            >
+              Email
+            </a>
             <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-luxury transition-colors">LinkedIn</a>
             <a href={GITHUB_PROFILE.url} target="_blank" rel="noopener noreferrer" className="hover:text-luxury transition-colors">GitHub (@bhushandagwar94-commits)</a>
             <a href={`tel:${profile.phone}`} className="hover:text-luxury transition-colors">Phone</a>
