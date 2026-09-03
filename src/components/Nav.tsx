@@ -1,4 +1,5 @@
-import { GitFork, Play } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Play, Maximize, Minimize } from 'lucide-react';
 import type { TourState } from './interactive/AutoTourController';
 
 interface NavProps {
@@ -21,6 +22,27 @@ const NAV_LINKS = [
 ];
 
 export const Nav = ({ onToggleAutoTour, tourState = 'OFF' }: NavProps) => {
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      setIsFullscreen(!!document.fullscreenElement);
+    };
+
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
+  }, []);
+
+  const toggleFullscreen = () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch(() => {});
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen().catch(() => {});
+      }
+    }
+  };
+
   return (
     <header className="fixed top-4 sm:top-5 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
       <nav className="glass-pill pointer-events-auto px-4 sm:px-5 py-2.5 rounded-full flex items-center gap-2.5 sm:gap-4 shadow-2xl transition-all duration-300 border border-white/[0.08] hover:border-luxury/30">
@@ -50,15 +72,25 @@ export const Nav = ({ onToggleAutoTour, tourState = 'OFF' }: NavProps) => {
 
         <div className="h-3.5 w-[1px] bg-white/10" />
 
-        {/* GitHub Smooth Scroll Anchor Link */}
-        <a
-          href="#github"
+        {/* Fullscreen Mode Button */}
+        <button
+          onClick={toggleFullscreen}
           className="hidden sm:flex items-center gap-1.5 text-[11px] font-mono text-muted hover:text-text bg-white/[0.05] hover:bg-white/[0.12] border border-white/10 px-3 py-1.5 rounded-full transition-all backdrop-blur-md"
-          title="Scroll to GitHub Lab"
+          title={isFullscreen ? "Exit Fullscreen Mode" : "Enter Fullscreen Mode"}
+          aria-label="Toggle Fullscreen Mode"
         >
-          <GitFork className="w-3 h-3 text-luxury" />
-          <span>GH</span>
-        </a>
+          {isFullscreen ? (
+            <>
+              <Minimize className="w-3 h-3 text-luxury" />
+              <span>EXIT FULL</span>
+            </>
+          ) : (
+            <>
+              <Maximize className="w-3 h-3 text-luxury" />
+              <span>FULLSCREEN</span>
+            </>
+          )}
+        </button>
 
         {/* AUTO TOUR Control Button */}
         {onToggleAutoTour && (
