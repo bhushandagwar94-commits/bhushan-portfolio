@@ -144,7 +144,7 @@ export const Experience = () => {
 
                 {/* Top Badge & Date Header */}
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3 pb-2 border-b border-line">
-                  <div className="flex items-center gap-2">
+                  <div className="flex flex-wrap items-center gap-1.5">
                     <span className="font-mono text-xs font-bold text-luxury">{exp.num}</span>
                     <span className="font-mono text-[10px] text-accent bg-accent/10 border border-accent/20 px-2.5 py-0.5 rounded-full font-bold">
                       {exp.badge}
@@ -155,7 +155,7 @@ export const Experience = () => {
                   </div>
                   
                   <div className="flex items-center gap-1.5 font-mono text-xs text-luxury font-semibold">
-                    <Calendar className="w-3.5 h-3.5 text-luxury" />
+                    <Calendar className="w-3.5 h-3.5 text-luxury shrink-0" />
                     <span>{exp.date}</span>
                   </div>
                 </div>

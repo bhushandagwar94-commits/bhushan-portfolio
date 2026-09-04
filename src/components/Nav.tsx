@@ -44,12 +44,12 @@ export const Nav = ({ onToggleAutoTour, tourState = 'OFF' }: NavProps) => {
   };
 
   return (
-    <header className="fixed top-4 sm:top-5 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
-      <nav className="glass-pill pointer-events-auto px-4 sm:px-5 py-2.5 rounded-full flex items-center gap-2.5 sm:gap-4 shadow-2xl transition-all duration-300 border border-white/[0.08] hover:border-luxury/30">
+    <header className="fixed top-3 sm:top-5 left-0 right-0 z-50 flex justify-center px-2 sm:px-4 pointer-events-none max-w-full">
+      <nav className="glass-pill pointer-events-auto px-3 sm:px-5 py-2 sm:py-2.5 rounded-full flex items-center gap-1.5 sm:gap-4 shadow-2xl transition-all duration-300 border border-white/[0.08] hover:border-luxury/30 max-w-[calc(100vw-16px)] sm:max-w-none">
         {/* Brand */}
         <a 
           href="#hero" 
-          className="font-display font-bold text-text text-sm tracking-tight hover:text-luxury transition-colors pl-1"
+          className="font-display font-bold text-text text-xs sm:text-sm tracking-tight hover:text-luxury transition-colors pl-0.5 sm:pl-1 shrink-0"
         >
           BRD.
         </a>
@@ -70,12 +70,12 @@ export const Nav = ({ onToggleAutoTour, tourState = 'OFF' }: NavProps) => {
           ))}
         </div>
 
-        <div className="h-3.5 w-[1px] bg-white/10" />
+        <div className="h-3.5 w-[1px] bg-white/10 hidden sm:block" />
 
         {/* Fullscreen Mode Button */}
         <button
           onClick={toggleFullscreen}
-          className="hidden sm:flex items-center gap-1.5 text-[11px] font-mono text-muted hover:text-text bg-white/[0.05] hover:bg-white/[0.12] border border-white/10 px-3 py-1.5 rounded-full transition-all backdrop-blur-md"
+          className="hidden sm:flex items-center gap-1.5 text-[11px] font-mono text-muted hover:text-text bg-white/[0.05] hover:bg-white/[0.12] border border-white/10 px-3 py-1.5 rounded-full transition-all backdrop-blur-md shrink-0"
           title={isFullscreen ? "Exit Fullscreen Mode" : "Enter Fullscreen Mode"}
           aria-label="Toggle Fullscreen Mode"
         >
@@ -98,7 +98,7 @@ export const Nav = ({ onToggleAutoTour, tourState = 'OFF' }: NavProps) => {
             onClick={onToggleAutoTour}
             aria-label="Toggle Auto Tour presentation mode"
             aria-pressed={tourState === 'RUNNING'}
-            className={`flex items-center gap-1.5 text-[11px] font-mono px-3 py-1.5 rounded-full transition-all border backdrop-blur-md ${
+            className={`flex items-center gap-1 text-[10px] sm:text-[11px] font-mono px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full transition-all border backdrop-blur-md shrink-0 ${
               tourState === 'RUNNING'
                 ? 'bg-accent/20 border-accent text-accent font-semibold shadow-md'
                 : tourState === 'COMPLETE'
@@ -119,7 +119,7 @@ export const Nav = ({ onToggleAutoTour, tourState = 'OFF' }: NavProps) => {
               <span>TOUR COMPLETE</span>
             ) : (
               <>
-                <Play className="w-3 h-3 text-luxury" />
+                <Play className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-luxury" />
                 <span>AUTO TOUR</span>
               </>
             )}
@@ -129,7 +129,7 @@ export const Nav = ({ onToggleAutoTour, tourState = 'OFF' }: NavProps) => {
         {/* Status Pill */}
         <a 
           href="#contact" 
-          className="flex items-center gap-2 text-[11px] font-mono text-accent bg-accent/10 hover:bg-accent/20 px-3.5 py-1.5 rounded-full transition-colors font-semibold border border-accent/20"
+          className="hidden sm:flex items-center gap-1 sm:gap-2 text-[10px] sm:text-[11px] font-mono text-accent bg-accent/10 hover:bg-accent/20 px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full transition-colors font-semibold border border-accent/20 shrink-0"
         >
           <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
           <span>OPEN TO WORK</span>

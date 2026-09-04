@@ -414,10 +414,10 @@ export const BhushanAITerminal = () => {
             glareSize={180}
             transitionDuration={800}
           >
-            <div className="px-5 py-3.5 bg-surface-2 border-b border-line flex flex-wrap items-center justify-between gap-3 font-mono text-xs">
+            <div className="px-3.5 sm:px-5 py-3 bg-surface-2 border-b border-line flex flex-wrap items-center justify-between gap-2.5 font-mono text-xs">
               
               {/* Left Status & Title */}
-              <div className="flex items-center gap-2.5">
+              <div className="flex items-center gap-2 sm:gap-2.5">
                 <div className="flex items-center gap-1.5">
                   <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
                   <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
@@ -426,9 +426,9 @@ export const BhushanAITerminal = () => {
                 
                 <span className="text-muted-dark font-mono text-xs">|</span>
                 
-                <div className="flex items-center gap-2">
-                  <span className="font-display font-bold text-text text-sm tracking-wide">BHUSHAN_AI</span>
-                  <div className="flex items-center gap-1.5 bg-accent/10 border border-accent/30 text-accent text-[10px] font-bold px-2 py-0.5 rounded-full">
+                <div className="flex items-center gap-1.5 sm:gap-2">
+                  <span className="font-display font-bold text-text text-xs sm:text-sm tracking-wide">BHUSHAN_AI</span>
+                  <div className="flex items-center gap-1 sm:gap-1.5 bg-accent/10 border border-accent/30 text-accent text-[9px] sm:text-[10px] font-bold px-1.5 sm:px-2 py-0.5 rounded-full">
                     <span className="relative flex h-1.5 w-1.5">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
                       <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-accent"></span>
@@ -465,23 +465,23 @@ export const BhushanAITerminal = () => {
           <div 
             ref={scrollRef} 
             data-lenis-prevent
-            className="p-4 sm:p-5 h-[270px] sm:h-[320px] overflow-y-auto flex flex-col gap-3.5 font-body leading-relaxed bg-[#050508]/80 text-xs sm:text-sm shadow-inner"
+            className="p-3 sm:p-5 h-[270px] sm:h-[320px] overflow-y-auto flex flex-col gap-3 font-body leading-relaxed bg-[#050508]/80 text-xs sm:text-sm shadow-inner min-w-0"
           >
             {messages.map((msg) => (
               <div 
                 key={msg.id} 
-                className={`flex gap-3 ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
+                className={`flex gap-2 sm:gap-3 ${msg.sender === 'user' ? 'justify-end' : 'justify-start'} min-w-0`}
               >
                 {/* AI Avatar */}
                 {msg.sender === 'ai' && (
-                  <div className="w-7 h-7 rounded-lg bg-luxury/10 border border-luxury/30 text-luxury flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
-                    <Sparkles className="w-3.5 h-3.5 text-luxury" />
+                  <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-luxury/10 border border-luxury/30 text-luxury flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+                    <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-luxury" />
                   </div>
                 )}
 
                 {/* Message Bubble */}
                 <div 
-                  className={`p-3 sm:p-3.5 rounded-xl transition-all shadow-md ${
+                  className={`p-2.5 sm:p-3.5 rounded-xl transition-all shadow-md min-w-0 break-words ${
                     msg.sender === 'user' 
                       ? 'bg-accent/15 border border-accent/30 text-text rounded-tr-xs max-w-[85%]' 
                       : 'bg-surface-2/95 border border-white/15 text-text rounded-tl-xs max-w-[92%]'
@@ -489,28 +489,28 @@ export const BhushanAITerminal = () => {
                 >
                   {/* Category Tag if AI */}
                   {msg.sender === 'ai' && msg.response.categoryTag && (
-                    <div className="font-mono text-[8px] sm:text-[9px] text-luxury mb-1 font-bold uppercase tracking-wider">
+                    <div className="font-mono text-[8px] sm:text-[9px] text-luxury mb-1 font-bold uppercase tracking-wider break-words">
                       {msg.response.categoryTag}
                     </div>
                   )}
 
                   {/* Title for AI Response */}
                   {msg.sender === 'ai' && msg.response.title && (
-                    <div className="font-display font-bold text-xs sm:text-sm text-text mb-1.5 pb-1 border-b border-line/60">
+                    <div className="font-display font-bold text-xs sm:text-sm text-text mb-1.5 pb-1 border-b border-line/60 break-words">
                       {msg.response.title}
                     </div>
                   )}
 
                   {/* Query Header for AI response */}
                   {msg.sender === 'ai' && msg.queryText && (
-                    <div className="font-mono text-[9px] sm:text-[10px] text-accent mb-1.5 pb-1 border-b border-line flex items-center gap-1.5 font-bold uppercase tracking-wider">
-                      <Search className="w-3 h-3" />
-                      <span>QUERY: {msg.queryText}</span>
+                    <div className="font-mono text-[9px] sm:text-[10px] text-accent mb-1.5 pb-1 border-b border-line flex items-center gap-1.5 font-bold uppercase tracking-wider break-words">
+                      <Search className="w-3 h-3 shrink-0" />
+                      <span className="break-words">QUERY: {msg.queryText}</span>
                     </div>
                   )}
 
                   {/* Main Answer Content */}
-                  <div className="text-text font-medium leading-snug sm:leading-relaxed whitespace-pre-line text-[11px] sm:text-xs">
+                  <div className="text-text font-medium leading-snug sm:leading-relaxed whitespace-pre-line text-[11px] sm:text-xs break-words">
                     {msg.response.answer}
                   </div>
 
@@ -531,7 +531,7 @@ export const BhushanAITerminal = () => {
                       {msg.response.highlights.map((h, i) => (
                         <li key={i} className="flex items-start gap-1.5 text-[10px] sm:text-[11px] text-slate-200">
                           <CheckCircle2 className="w-3 h-3 text-accent shrink-0 mt-0.5" />
-                          <span>{h}</span>
+                          <span className="break-words">{h}</span>
                         </li>
                       ))}
                     </ul>
@@ -558,7 +558,7 @@ export const BhushanAITerminal = () => {
                         <button
                           key={idx}
                           onClick={() => handleSendMessage(rq)}
-                          className="font-mono text-[10px] text-accent hover:text-white bg-accent/10 border border-accent/20 px-2 py-0.5 rounded-full transition-colors"
+                          className="font-mono text-[10px] text-accent hover:text-white bg-accent/10 border border-accent/20 px-2 py-0.5 rounded-full transition-colors text-left"
                         >
                           {rq}
                         </button>
@@ -574,7 +574,7 @@ export const BhushanAITerminal = () => {
 
                 {/* User Avatar */}
                 {msg.sender === 'user' && (
-                  <div className="w-8 h-8 rounded-xl bg-accent/10 border border-accent/30 text-accent flex items-center justify-center shrink-0 mt-0.5 font-mono font-bold text-xs">
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-accent/10 border border-accent/30 text-accent flex items-center justify-center shrink-0 mt-0.5 font-mono font-bold text-[10px] sm:text-xs">
                     YOU
                   </div>
                 )}
@@ -591,19 +591,19 @@ export const BhushanAITerminal = () => {
           </div>
 
           {/* Starter Suggested Questions Category Filter Bar */}
-          <div className="p-3 bg-surface-2 border-t border-line flex flex-col gap-2.5">
+          <div className="p-2.5 sm:p-3 bg-surface-2 border-t border-line flex flex-col gap-2.5 w-full min-w-0">
             <div className="flex items-center justify-between flex-wrap gap-2">
-              <span className="font-mono text-[10px] text-luxury font-bold uppercase tracking-wider flex items-center gap-1.5">
-                <HelpCircle className="w-3.5 h-3.5 text-luxury" />
+              <span className="font-mono text-[9px] sm:text-[10px] text-luxury font-bold uppercase tracking-wider flex items-center gap-1.5 shrink-0">
+                <HelpCircle className="w-3.5 h-3.5 text-luxury shrink-0" />
                 <span>SUGGESTED QUESTIONS:</span>
               </span>
 
-              <div className="flex items-center gap-1 font-mono text-[10px] overflow-x-auto no-scrollbar py-0.5 shrink-0">
+              <div className="flex flex-wrap items-center gap-1.5 font-mono text-[9px] sm:text-[10px] py-0.5 min-w-0">
                 {['ALL', 'ABOUT', 'TECHNICAL', 'PROJECTS', 'RESEARCH', 'CAREER'].map((cat) => (
                   <button
                     key={cat}
                     onClick={() => setActiveCategory(cat)}
-                    className={`px-2 py-0.5 rounded-md transition-all font-semibold ${
+                    className={`px-2.5 py-1 rounded-md transition-all font-semibold flex-none whitespace-nowrap ${
                       activeCategory === cat
                         ? 'bg-luxury text-bg font-bold'
                         : 'text-muted hover:text-text bg-surface'
@@ -615,37 +615,37 @@ export const BhushanAITerminal = () => {
               </div>
             </div>
 
-            {/* Horizontally Scrollable Question Chips */}
-            <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+            {/* Responsive Starter Question Cards */}
+            <div className="flex flex-wrap items-stretch gap-1.5 w-full min-w-0">
               {filteredStarterQuestions.map((sq, i) => (
                 <button
                   key={i}
                   onClick={() => handleSendMessage(sq.question)}
-                  className="font-mono text-[11px] text-text hover:text-luxury bg-surface hover:bg-luxury/10 border border-line-light hover:border-luxury/30 px-3 py-1.5 rounded-full whitespace-nowrap transition-all flex items-center gap-1.5 shrink-0 shadow-sm"
+                  className="font-mono text-[10px] sm:text-[11px] text-text hover:text-luxury bg-surface hover:bg-luxury/10 border border-line-light hover:border-luxury/30 px-2.5 sm:px-3 py-1.5 rounded-xl transition-all flex items-start gap-1.5 flex-1 sm:flex-none min-w-[200px] sm:min-w-0 text-left shadow-sm break-words"
                 >
-                  <span className="text-luxury font-bold">&gt;</span>
-                  <span>{sq.question}</span>
+                  <span className="text-luxury font-bold shrink-0 mt-0.5">&gt;</span>
+                  <span className="break-words min-w-0 leading-snug">{sq.question}</span>
                 </button>
               ))}
             </div>
           </div>
 
           {/* Fixed Input Control Area at Bottom */}
-          <div className="p-3.5 bg-surface border-t border-line flex flex-col gap-2">
-            <div className="flex items-center gap-2">
-              <span className="font-mono text-accent text-sm font-bold pl-2">&gt;</span>
+          <div className="p-3 sm:p-3.5 bg-surface border-t border-line flex flex-col gap-2.5 w-full max-w-full min-w-0">
+            <div className="flex items-center gap-2 w-full min-w-0">
+              <span className="font-mono text-accent text-xs sm:text-sm font-bold pl-1 sm:pl-2 shrink-0">&gt;</span>
               <input 
                 type="text" 
-                placeholder="Ask BHUSHAN_AI anything or type /help, /skills, /projects..." 
+                placeholder="Ask BHUSHAN_AI anything or type /help..." 
                 value={input}
                 onChange={e => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
-                className="bg-transparent border-none outline-none text-text placeholder-muted text-xs sm:text-sm font-mono w-full"
+                className="bg-transparent border-none outline-none text-text placeholder-muted text-xs sm:text-sm font-mono flex-1 min-w-0 w-full"
               />
               <button 
                 onClick={() => handleSendMessage()}
                 disabled={!input.trim() || isTyping}
-                className="p-2.5 rounded-xl bg-luxury hover:bg-luxury-light text-bg font-bold transition-all flex items-center gap-1.5 shrink-0 shadow-md disabled:opacity-40 disabled:hover:scale-100 hover:scale-105"
+                className="p-2 sm:p-2.5 rounded-xl bg-luxury hover:bg-luxury-light text-bg font-bold transition-all flex items-center gap-1.5 shrink-0 shadow-md disabled:opacity-40 disabled:hover:scale-100 hover:scale-105"
                 aria-label="Send Message"
               >
                 <Send className="w-3.5 h-3.5" />
@@ -653,14 +653,14 @@ export const BhushanAITerminal = () => {
               </button>
             </div>
 
-            {/* Quick Slash Commands Shortcuts Line */}
-            <div className="flex items-center gap-1.5 overflow-x-auto text-[10px] font-mono text-muted pt-1 border-t border-line/40">
-              <span className="text-muted-dark uppercase tracking-wider">QUICK COMMANDS:</span>
+            {/* Quick Slash Commands Shortcuts Line (NEVER COMPRESSED) */}
+            <div className="flex flex-wrap items-center gap-1.5 text-[10px] sm:text-[11px] font-mono text-muted pt-2 border-t border-line/40 w-full min-w-0">
+              <span className="text-muted-dark uppercase tracking-wider shrink-0 text-[9px] sm:text-[10px] font-bold">QUICK COMMANDS:</span>
               {['/about', '/skills', '/projects', '/research', '/certifications', '/contact', '/summary', '/clear'].map(cmd => (
                 <button
                   key={cmd}
                   onClick={() => handleSendMessage(cmd)}
-                  className="px-2 py-0.5 rounded bg-surface-2 hover:bg-surface border border-line-light text-accent hover:text-white transition-colors"
+                  className="px-2.5 py-1 rounded-md bg-surface-2 hover:bg-surface border border-line-light text-accent hover:text-white transition-colors flex-none whitespace-nowrap text-[10px] font-bold uppercase shadow-sm"
                 >
                   {cmd}
                 </button>

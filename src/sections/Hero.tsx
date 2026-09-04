@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { 
   ArrowRight, 
@@ -142,44 +142,28 @@ const VibeCoderSVG = () => (
 );
 
 const TechIconBadge = ({ name, icon, label, tagline }: TechIconBadgeProps) => {
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
     <div 
-      className="group relative flex flex-col items-center z-20 cursor-pointer transition-transform duration-200"
-      onClick={(e) => {
-        e.stopPropagation();
-        setIsOpen((prev) => !prev);
-      }}
-      onMouseEnter={() => setIsOpen(true)}
-      onMouseLeave={() => setIsOpen(false)}
-      role="button"
-      tabIndex={0}
+      className="group relative flex flex-col items-center z-20 transition-transform duration-200"
       aria-label={`${name}: ${tagline}`}
-      onKeyDown={(e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          setIsOpen((prev) => !prev);
-        }
-      }}
     >
-      {/* Outer Pulse Glow Ring on Hover / Active */}
-      <div className={`absolute -inset-1 rounded-full bg-gradient-to-r from-luxury/30 via-accent/30 to-luxury/30 transition-opacity duration-300 blur-sm ${isOpen ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
+      {/* Outer Pulse Glow Ring on Hover */}
+      <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-luxury/30 via-accent/30 to-luxury/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm pointer-events-none" />
 
       {/* Realistic Glass Sphere Badge */}
-      <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-gradient-to-b from-[#1A1A24]/95 via-[#0C0C12]/95 to-[#06060A]/95 border border-white/20 backdrop-blur-xl transition-all duration-300 flex items-center justify-center shadow-[0_4px_20px_rgba(0,0,0,0.6)] relative z-10 ${isOpen ? 'border-luxury bg-luxury/10 shadow-[0_0_25px_rgba(201,178,124,0.4)] scale-110' : 'group-hover:border-luxury group-hover:bg-luxury/10 group-hover:shadow-[0_0_25px_rgba(201,178,124,0.4)] group-hover:scale-110'}`}>
-        <div className={`transform transition-transform duration-300 ${isOpen ? 'scale-110' : 'group-hover:scale-110'}`}>
+      <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-gradient-to-b from-[#1A1A24]/95 via-[#0C0C12]/95 to-[#06060A]/95 border border-white/20 backdrop-blur-xl transition-all duration-300 flex items-center justify-center shadow-[0_4px_20px_rgba(0,0,0,0.6)] relative z-10 group-hover:border-luxury group-hover:bg-luxury/10 group-hover:shadow-[0_0_25px_rgba(201,178,124,0.4)] group-hover:scale-110">
+        <div className="transform transition-transform duration-300 group-hover:scale-110">
           {icon}
         </div>
       </div>
 
       {/* Node Label */}
-      <span className={`mt-0.5 font-mono text-[9px] sm:text-[10px] font-bold tracking-wide transition-colors ${isOpen ? 'text-luxury' : 'text-slate-300 group-hover:text-luxury'}`}>
+      <span className="mt-0.5 font-mono text-[9px] sm:text-[10px] font-bold tracking-wide text-slate-300 group-hover:text-luxury transition-colors">
         {label}
       </span>
 
-      {/* Rich Floating Glass Tooltip (Touch Screen & Mobile Compatible) */}
-      <div className={`absolute -top-12 sm:-top-14 left-1/2 -translate-x-1/2 transition-all duration-300 z-50 font-mono text-left bg-[#0A0A0F]/95 border border-luxury/40 px-3 py-1.5 rounded-xl shadow-2xl backdrop-blur-xl max-w-[200px] sm:max-w-none whitespace-normal sm:whitespace-nowrap ${isOpen ? 'opacity-100 translate-y-0 scale-100 pointer-events-auto' : 'opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto'}`}>
+      {/* Rich Floating Glass Tooltip (Desktop Hover Only - Hidden on Mobile / Touch screens) */}
+      <div className="hidden sm:block absolute -top-12 sm:-top-14 left-1/2 -translate-x-1/2 opacity-0 pointer-events-none group-hover:opacity-100 transition-all duration-300 z-50 font-mono text-left bg-[#0A0A0F]/95 border border-luxury/40 px-3 py-1.5 rounded-xl shadow-2xl backdrop-blur-xl whitespace-nowrap">
         <div className="text-luxury font-extrabold text-[11px] flex items-center gap-1.5">
           <span className="w-1.5 h-1.5 rounded-full bg-accent animate-ping shrink-0" />
           <span>{name}</span>
