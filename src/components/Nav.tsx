@@ -46,12 +46,13 @@ export const Nav = ({ onToggleAutoTour, tourState = 'OFF' }: NavProps) => {
   return (
     <header className="fixed top-3 sm:top-5 left-0 right-0 z-50 flex justify-center px-2 sm:px-4 pointer-events-none max-w-full">
       <nav className="glass-pill pointer-events-auto px-3 sm:px-5 py-2 sm:py-2.5 rounded-full flex items-center gap-1.5 sm:gap-4 shadow-2xl transition-all duration-300 border border-white/[0.08] hover:border-luxury/30 max-w-[calc(100vw-16px)] sm:max-w-none">
-        {/* Brand */}
+        {/* Brand Monogram */}
         <a 
           href="#hero" 
-          className="font-display font-bold text-text text-xs sm:text-sm tracking-tight hover:text-luxury transition-colors pl-0.5 sm:pl-1 shrink-0"
+          className="font-display font-bold text-text text-xs sm:text-sm tracking-tight hover:text-luxury transition-colors pl-0.5 sm:pl-1 shrink-0 flex items-center gap-1.5"
         >
-          BRD.
+          <img src="/favicon.svg" alt="Royal BD Monogram" className="w-5 h-5 object-contain drop-shadow-[0_0_8px_rgba(201,178,124,0.4)]" />
+          <span>BRD.</span>
         </a>
 
         <div className="h-3.5 w-[1px] bg-white/10 hidden md:block" />

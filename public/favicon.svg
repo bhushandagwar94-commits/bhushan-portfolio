@@ -1,51 +1,54 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
   <defs>
     <!-- Dark Luxury Background Gradient -->
-    <linearGradient id="bg-grad-bd" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#12121A"/>
-      <stop offset="50%" stop-color="#08080C"/>
-      <stop offset="100%" stop-color="#040406"/>
+    <linearGradient id="bg-royal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0E0E14"/>
+      <stop offset="50%" stop-color="#07070A"/>
+      <stop offset="100%" stop-color="#020204"/>
     </linearGradient>
 
-    <!-- Royal Metallic Gold Gradient -->
-    <linearGradient id="gold-grad-bd" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#F2E3C6"/>
-      <stop offset="35%" stop-color="#C9B27C"/>
-      <stop offset="70%" stop-color="#B39759"/>
-      <stop offset="100%" stop-color="#EAD5AB"/>
+    <!-- Premium Metallic Champagne Gold Gradient -->
+    <linearGradient id="gold-metallic" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5E7C8"/>
+      <stop offset="25%" stop-color="#E2CA97"/>
+      <stop offset="60%" stop-color="#C9B27C"/>
+      <stop offset="85%" stop-color="#B2985D"/>
+      <stop offset="100%" stop-color="#DFC48F"/>
     </linearGradient>
 
-    <!-- Electric Cyan Accent Gradient -->
-    <linearGradient id="cyan-grad-bd" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#5CC8FF"/>
-      <stop offset="100%" stop-color="#0088FF"/>
+    <!-- Subtle Gold Border Glow -->
+    <linearGradient id="gold-border" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E2CA97" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#C9B27C" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#9E824A" stop-opacity="0.5"/>
     </linearGradient>
-
-    <!-- Gold Soft Glow Filter -->
-    <filter id="gold-glow-bd" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="4" stdDeviation="10" flood-color="#C9B27C" flood-opacity="0.4"/>
-    </filter>
   </defs>
 
-  <!-- Background Base with Gold Frame -->
-  <rect width="512" height="512" rx="120" fill="url(#bg-grad-bd)"/>
-  <rect x="14" y="14" width="484" height="484" rx="108" fill="none" stroke="url(#gold-grad-bd)" stroke-width="8" stroke-opacity="0.5"/>
+  <!-- Background Container Squircle -->
+  <rect width="512" height="512" rx="112" fill="url(#bg-royal)"/>
+  <rect x="12" y="12" width="488" height="488" rx="100" fill="none" stroke="url(#gold-border)" stroke-width="4"/>
 
-  <!-- Interlocked Monogram BD Emblem -->
-  <g filter="url(#gold-glow-bd)">
-    <!-- Vertical Shared Spine -->
-    <rect x="124" y="112" width="40" height="288" rx="8" fill="url(#gold-grad-bd)"/>
+  <!-- Unified Royal "BD" Interlocked Monogram -->
+  <g fill="none" stroke="url(#gold-metallic)" stroke-linecap="square" stroke-linejoin="miter">
+    
+    <!-- Shared Vertical Main Stem -->
+    <path d="M 152 112 L 152 400" stroke-width="38"/>
 
-    <!-- Upper Lobe of B -->
-    <path d="M 164 112 H 280 C 330 112 360 137 360 176 C 360 212 330 236 280 236 H 164" fill="none" stroke="url(#gold-grad-bd)" stroke-width="36" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Top Cap Serif & Bottom Cap Serif -->
+    <path d="M 124 112 L 180 112" stroke-width="28"/>
+    <path d="M 124 400 L 180 400" stroke-width="28"/>
 
-    <!-- Lower Lobe of B -->
-    <path d="M 164 236 H 292 C 348 236 384 265 384 316 C 384 366 348 400 292 400 H 164" fill="none" stroke="url(#gold-grad-bd)" stroke-width="36" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- 'B' Upper Loop -->
+    <path d="M 152 112 H 248 C 304 112 340 142 340 184 C 340 224 304 252 248 252 H 152" stroke-width="32"/>
 
-    <!-- Interlocked D Arc (Cyan Accent Overlay) -->
-    <path d="M 174 112 H 290 C 375 112 422 172 422 256 C 422 340 375 400 290 400 H 174" fill="none" stroke="url(#cyan-grad-bd)" stroke-width="16" stroke-linecap="round" opacity="0.85"/>
+    <!-- 'B' Lower Loop -->
+    <path d="M 152 252 H 260 C 324 252 364 284 364 330 C 364 374 324 400 260 400 H 152" stroke-width="32"/>
 
-    <!-- Center Monogram Diamond Accent -->
-    <polygon points="256,236 270,256 256,276 242,256" fill="#F5F5F7"/>
+    <!-- 'D' Outer Enclosing Arc (Unifying B and D into One Symbol) -->
+    <path d="M 152 112 H 272 C 368 112 420 174 420 256 C 420 338 368 400 272 400 H 152" stroke-width="16" stroke-opacity="0.95"/>
+
+    <!-- Center Interlock Cut Accent Line -->
+    <path d="M 236 252 H 276" stroke="url(#bg-royal)" stroke-width="10"/>
+
   </g>
 </svg>

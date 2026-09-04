@@ -9,7 +9,10 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-line">
           
           <div className="md:col-span-6 flex flex-col">
-            <div className="font-display font-bold text-text text-xl tracking-tight mb-2">BRD.</div>
+            <div className="flex items-center gap-2 mb-2">
+              <img src="/favicon.svg" alt="Royal BD Monogram" className="w-6 h-6 object-contain drop-shadow-[0_0_8px_rgba(201,178,124,0.4)]" />
+              <span className="font-display font-bold text-text text-xl tracking-tight">BRD.</span>
+            </div>
             <h3 className="font-body font-semibold text-text text-sm mb-1">{profile.name}</h3>
             <p className="font-mono text-[11px] text-luxury tracking-widest uppercase mb-3 font-medium">AI ENGINEER · APPLIED AI & LLM SYSTEMS</p>
             <p className="font-body text-xs text-muted max-w-sm leading-relaxed font-normal">
