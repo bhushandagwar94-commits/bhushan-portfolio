@@ -1,54 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
-  <defs>
-    <!-- Dark Luxury Background Gradient -->
-    <linearGradient id="bg-royal" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0E0E14"/>
-      <stop offset="50%" stop-color="#07070A"/>
-      <stop offset="100%" stop-color="#020204"/>
-    </linearGradient>
+  <!-- Solid Black Circle Background -->
+  <circle cx="256" cy="256" r="256" fill="#000000"/>
 
-    <!-- Premium Metallic Champagne Gold Gradient -->
-    <linearGradient id="gold-metallic" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#F5E7C8"/>
-      <stop offset="25%" stop-color="#E2CA97"/>
-      <stop offset="60%" stop-color="#C9B27C"/>
-      <stop offset="85%" stop-color="#B2985D"/>
-      <stop offset="100%" stop-color="#DFC48F"/>
-    </linearGradient>
-
-    <!-- Subtle Gold Border Glow -->
-    <linearGradient id="gold-border" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#E2CA97" stop-opacity="0.6"/>
-      <stop offset="50%" stop-color="#C9B27C" stop-opacity="0.2"/>
-      <stop offset="100%" stop-color="#9E824A" stop-opacity="0.5"/>
-    </linearGradient>
-  </defs>
-
-  <!-- Background Container Squircle -->
-  <rect width="512" height="512" rx="112" fill="url(#bg-royal)"/>
-  <rect x="12" y="12" width="488" height="488" rx="100" fill="none" stroke="url(#gold-border)" stroke-width="4"/>
-
-  <!-- Unified Royal "BD" Interlocked Monogram -->
-  <g fill="none" stroke="url(#gold-metallic)" stroke-linecap="square" stroke-linejoin="miter">
-    
-    <!-- Shared Vertical Main Stem -->
-    <path d="M 152 112 L 152 400" stroke-width="38"/>
-
-    <!-- Top Cap Serif & Bottom Cap Serif -->
-    <path d="M 124 112 L 180 112" stroke-width="28"/>
-    <path d="M 124 400 L 180 400" stroke-width="28"/>
-
-    <!-- 'B' Upper Loop -->
-    <path d="M 152 112 H 248 C 304 112 340 142 340 184 C 340 224 304 252 248 252 H 152" stroke-width="32"/>
-
-    <!-- 'B' Lower Loop -->
-    <path d="M 152 252 H 260 C 324 252 364 284 364 330 C 364 374 324 400 260 400 H 152" stroke-width="32"/>
-
-    <!-- 'D' Outer Enclosing Arc (Unifying B and D into One Symbol) -->
-    <path d="M 152 112 H 272 C 368 112 420 174 420 256 C 420 338 368 400 272 400 H 152" stroke-width="16" stroke-opacity="0.95"/>
-
-    <!-- Center Interlock Cut Accent Line -->
-    <path d="M 236 252 H 276" stroke="url(#bg-royal)" stroke-width="10"/>
-
-  </g>
+  <!-- Clean Normal Bold Sans-Serif White "BD" Text -->
+  <text 
+    x="50%" 
+    y="52%" 
+    dominant-baseline="central" 
+    text-anchor="middle" 
+    fill="#FFFFFF" 
+    font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" 
+    font-size="230" 
+    font-weight="700" 
+    letter-spacing="6"
+  >BD</text>
 </svg>
