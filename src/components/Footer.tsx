@@ -1,12 +1,49 @@
 import { profile } from '../data/profile';
 import { GITHUB_PROFILE } from '../utils/github';
 import { handleEmailClick } from '../utils/email';
+import Scanner from './Scanner';
 
 export const Footer = () => {
   return (
-    <footer className="py-20 bg-[#050505] border-t border-line text-muted">
-      <div className="container mx-auto px-6 max-w-6xl">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-line">
+    <footer className="relative py-16 sm:py-20 bg-[#050505] border-t border-line text-muted overflow-hidden">
+      {/* Background Ambient Scanner WebGL Layer */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <Scanner 
+          color1="#08080D"
+          color2="#1D4ED8"
+          color3="#FFFFFF"
+          speed={0.18}
+          sweepSpeed={0.12}
+          sweepWidth={2.2}
+          sweepFalloff={8}
+          scale={2}
+          frequency={1.4}
+          ripple={0.12}
+          bandDensity={7}
+          lineSharpness={7}
+          glow={0.12}
+          scanDirection="horizontal"
+          colorSpread={0.25}
+          brightness={0.45}
+          contrast={1.2}
+          softness={2}
+          vignette={0.75}
+          scanline={false}
+          grain={true}
+          grainIntensity={0.015}
+          opacity={0.28}
+          mouseInteraction={true}
+          mouseRadius={0.45}
+          mouseStrength={0.22}
+        />
+      </div>
+
+      {/* Dark Gradient Overlay for Maximum Text Contrast & Readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/75 via-transparent to-[#050505]/85 pointer-events-none z-0" />
+
+      {/* Footer Content */}
+      <div className="container mx-auto px-6 max-w-6xl relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 pb-12 border-b border-line">
           
           <div className="md:col-span-6 flex flex-col">
             <div className="flex items-center gap-2 mb-2">
